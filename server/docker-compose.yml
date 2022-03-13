@@ -1,0 +1,19 @@
+version: "3"
+services:
+ 
+  mongo: 
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "5000:27017"
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=root 
+      - MONGO_INITDB_ROOT_PASSWORD=root123
+
+    volumes:
+    # For persisting data even after restarting the container
+      - mongo-db:/data/db
+
+
+volumes:
+  mongo-db:
